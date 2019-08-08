@@ -51,5 +51,7 @@
     executable: /bin/bash
   until: result.rc == 0
   with_items:
-    - "{{ groups['kube-minions-windows'] }}"
-  when: master
+    - "{{ groups['all'] }}"
+  when:
+    - master
+    - item != inventory_hostname

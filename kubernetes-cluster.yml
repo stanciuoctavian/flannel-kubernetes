@@ -84,9 +84,13 @@
   become: true
   tasks:
     - import_role:
+        name: linux/test
+      tags:
+        - alex2
+    - import_role:
         name: linux/validation
-        tags:
-        - alex
+      tags:
+        - alex2
 
 - hosts: kube-minions-windows
   remote_user: Administrator
